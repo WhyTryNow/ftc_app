@@ -1,15 +1,16 @@
+package org.firstinspires.ftc.teamcode;
+
 import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cRangeSensor;
 import com.qualcomm.hardware.modernrobotics.ModernRoboticsTouchSensor;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
-@TeleOp(name = "Test Bed", group = "practice")
-
+@TeleOp(name = "Testbed v3")
 public class Testbed extends OpMode {
 
     public DcMotor dcMotor;
@@ -21,13 +22,21 @@ public class Testbed extends OpMode {
     public void init() {
 
         // display an initialization string on the robot controller
-        telemetry.addData("Status", "Testbed Initialized");
+        telemetry.addData("Status", "org.firstinspires.ftc.teamcode.Testbed Initialized");
 
         // initialize motor and sensor objects
         dcMotor = hardwareMap.get(DcMotor.class, "motor_dc");
         servoMotor = hardwareMap.get(Servo.class, "motor_servo");
         touchSensor = hardwareMap.get(ModernRoboticsTouchSensor.class, "sensor_touch");
         rangeSensor = hardwareMap.get(ModernRoboticsI2cRangeSensor.class, "sensor_range");
+    }
+
+    @Override
+    public void init_loop() {
+    }
+
+    @Override
+    public void start() {
     }
 
     @Override
@@ -50,5 +59,9 @@ public class Testbed extends OpMode {
 
         // push telemetry output to driver controller
         telemetry.update();
+    }
+
+    @Override
+    public void stop() {
     }
 }
